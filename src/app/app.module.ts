@@ -7,9 +7,19 @@ import { AuthComponent } from './auth/auth.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { CarsComponent } from './cars/cars.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, NavbarComponent],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    NavbarComponent,
+    ErrorPageComponent,
+    CarsComponent,
+    UsersComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

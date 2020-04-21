@@ -1,1 +1,4 @@
-<app-auth></app-auth>
+<app-navbar *ngIf="userService.isAuth"></app-navbar>
+<div class="general">
+  <router-outlet></router-outlet>
+</div>
