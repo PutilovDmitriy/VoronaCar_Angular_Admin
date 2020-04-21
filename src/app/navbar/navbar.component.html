@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <div class="heading">
+    <a [routerLink]="['/cars']">
+      <h1>VoronaCar Admin</h1>
+    </a>
+  </div>
+  <div class="points" [routerLink]="['/cars']"><h3>Автомобили</h3></div>
+  <div class="points" [routerLink]="['/users']"><h3>Пользователи</h3></div>
+  <div class="logout" (click)="logout()"><h4>Выход</h4></div>
+</nav>

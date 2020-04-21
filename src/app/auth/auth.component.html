@@ -1,0 +1,49 @@
+<div class="auth-block">
+  <form class="form-auth" [formGroup]="form" (ngSubmit)="submit()">
+    <h3>Логин</h3>
+    <input type="text" placeholder="Логин" formControlName="login" />
+
+    <div
+      *ngIf="form.get('login').invalid && form.get('login').touched"
+      class="validation"
+    >
+      <small *ngIf="form.get('login').errors.required">
+        Логин отсутсвует.
+      </small>
+      <small *ngIf="form.get('login').errors.NaN">
+        Логин должен быть номером телефона.
+      </small>
+      <small
+        *ngIf="
+          form.get('login').errors.minlength && !form.get('login').errors.NaN
+        "
+      >
+        Логин должен быть
+        {{ form.get("login").errors.minlength["requiredLength"] }} символов.
+      </small>
+    </div>
+
+    <h3>Пароль</h3>
+
+    <input type="password" placeholder="Пароль" formControlName="password" />
+
+    <div
+      *ngIf="form.get('password').invalid && form.get('password').touched"
+      class="validation"
+    >
+      <small *ngIf="form.get('password').errors.required">
+        Пароль отсутсвует.
+      </small>
+      <small *ngIf="form.get('password').errors.minlength">
+        Пароль должен быть не менее
+        {{ form.get("password").errors.minlength["requiredLength"] }} символов.
+      </small>
+    </div>
+
+    <button class="btn" [disabled]="form.invalid">Войти</button>
+
+    <div class="validation" *ngIf="error">
+      <small>{{ error }}</small>
+    </div>
+  </form>
+</div>
