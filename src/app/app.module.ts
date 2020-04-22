@@ -9,7 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { CarsComponent } from './cars/cars.component';
-import { UsersComponent } from './users/users.component';
+import { CarComponent } from './cars/car/car.component';
+import { SharedModule } from './shared/shared.module';
+import { UsersPageModule } from './users/users-page.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { UsersComponent } from './users/users.component';
     NavbarComponent,
     ErrorPageComponent,
     CarsComponent,
-    UsersComponent,
+    CarComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,8 @@ import { UsersComponent } from './users/users.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    UsersPageModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

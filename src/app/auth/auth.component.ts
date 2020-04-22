@@ -18,7 +18,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       login: new FormControl('', [
-        Validators.minLength(11),
+        Validators.minLength(10),
         Validators.required,
         MyValidators.number,
       ]),
@@ -32,11 +32,6 @@ export class AuthComponent implements OnInit {
   submit() {
     this.userService.userAutorise(this.form.value).subscribe(
       (user) => {
-        this.userService.admin = {
-          userId: user.userId,
-          login: user.login,
-          name: user.name,
-        };
         this.userService.loading = false;
         this.userService.isAuth = true;
         localStorage.setItem('TOKEN', user.token);

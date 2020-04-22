@@ -1,6 +1,29 @@
-<div class="cars">
+<div class="gridPage">
   <div class="left">
-    <div></div>
+    <div class="search" (click)="focusSearch()">
+      <input type="text" [(ngModel)]="searchNumber" #searchInput />
+      <img
+        src="../../assets/images/search.png"
+        alt="search"
+        width="20px"
+        height="20px"
+      />
+    </div>
+    <div
+      *ngFor="let car of carService.cars | sortCars: searchNumber"
+      class="car"
+      [routerLink]="['/cars', car.number]"
+    >
+      <img
+        [src]="car.model | decodeLogo"
+        [alt]="car.model"
+        width="40px"
+        height="40px"
+      />
+      <p>{{ car.number }}</p>
+    </div>
   </div>
-  <div class="right">Info</div>
+  <div class="right">
+    <router-outlet></router-outlet>
+  </div>
 </div>
