@@ -9,18 +9,21 @@
         height="20px"
       />
     </div>
-    <div
-      *ngFor="let car of carService.cars | sortCars: searchNumber"
-      class="car"
-      [routerLink]="['/cars', car.number]"
-    >
-      <img
-        [src]="car.model | decodeLogo"
-        [alt]="car.model"
-        width="40px"
-        height="40px"
-      />
-      <p>{{ car.number }}</p>
+    <div class="sub-left">
+      <div
+        *ngFor="let car of carService.cars | filterCars: searchNumber"
+        class="car"
+        [routerLink]="['/cars', car.number]"
+        routerLinkActive="active-car"
+      >
+        <img
+          [src]="car.model | decodeLogo"
+          [alt]="car.model"
+          width="40px"
+          height="40px"
+        />
+        <p>{{ car.number }}</p>
+      </div>
     </div>
   </div>
   <div class="right">

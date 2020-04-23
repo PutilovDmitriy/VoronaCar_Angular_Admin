@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Car } from '../services/car.service';
 
 @Pipe({
-  name: 'sortCars',
+  name: 'filterCars',
 })
-export class SortCarsPipe implements PipeTransform {
+export class FilterCarsPipe implements PipeTransform {
   transform(value: Car[], text: string = ''): Car[] {
     if (text.trim()) {
       return value.filter((car) => {

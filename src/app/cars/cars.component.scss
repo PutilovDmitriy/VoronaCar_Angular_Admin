@@ -2,4 +2,10 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  outline: none;
+}
+
+.active-car {
+  border: 1px dashed black;
+  border-radius: 20px;
 }

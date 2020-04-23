@@ -29,4 +29,4 @@ import { FormsModule } from '@angular/forms';
     ]),
   ],
 })
-export class UsersPageModule {}
+export class UsersModule {}

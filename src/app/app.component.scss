@@ -1,16 +1,8 @@
 .general {
   display: block;
   width: 100%;
-  max-width: 1200px;
   height: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   padding-top: 60px;
-}
-
-@media (max-width: 1250px)  {
-  .general {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
 }

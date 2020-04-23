@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { DecodeLogoPipe } from '../pipes/decode-logo.pipe';
-import { SortCarsPipe } from '../pipes/sort-cars.pipe';
+import { FilterCarsPipe } from '../pipes/filter-cars.pipe';
+import { FilterUsersPipe } from '../pipes/filter-users.pipe';
 
 @NgModule({
-  declarations: [DecodeLogoPipe, SortCarsPipe],
-  exports: [DecodeLogoPipe, SortCarsPipe],
+  declarations: [DecodeLogoPipe, FilterCarsPipe, FilterUsersPipe],
+  exports: [DecodeLogoPipe, FilterCarsPipe, FilterUsersPipe],
 })
 export class SharedModule {}

@@ -8,10 +8,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { CarsComponent } from './cars/cars.component';
-import { CarComponent } from './cars/car/car.component';
 import { SharedModule } from './shared/shared.module';
-import { UsersPageModule } from './users/users-page.module';
+import { UsersModule } from './users/users.module';
+import { CarsModule } from './cars/cars.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { FilterUsersPipe } from './pipes/filter-users.pipe';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,6 @@ import { UsersPageModule } from './users/users-page.module';
     AuthComponent,
     NavbarComponent,
     ErrorPageComponent,
-    CarsComponent,
-    CarComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,10 +28,15 @@ import { UsersPageModule } from './users/users-page.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UsersPageModule,
+    CarsModule,
+    UsersModule,
     SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [FilterUsersPipe],
 })
 export class AppModule {}
