@@ -108,9 +108,11 @@ select {
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px;
+  padding: 1px 5px;
   z-index: 999;
   background: #ffffff;
+  transform: scaleX(-1);
+
   input {
     border: 0;
   }
