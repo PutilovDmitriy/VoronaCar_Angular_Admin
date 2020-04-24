@@ -75,6 +75,9 @@ select {
 
 .left {
   grid-area: b1;
+}
+.scroll {
+  max-height: 75vh;
   display: block;
   flex-direction: column;
   justify-content: center;
@@ -95,29 +98,30 @@ select {
     background-color: coral;
     border-radius: 5px;
   }
-  .sub-left {
+  .sub-scroll {
     transform: scaleX(-1);
+    padding: 10px;
   }
-}
 
-.search {
-  display: flex;
-  position: sticky;
-  top: 0;
-  border: 1px solid black;
-  border-radius: 10px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1px 5px;
-  z-index: 999;
-  background: #ffffff;
-  transform: scaleX(-1);
+  .line {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    outline: none;
+    padding: 1px;
+  }
 
-  input {
-    border: 0;
+  .active-line {
+    border: 1px dashed black;
+    border-radius: 20px;
+    padding: 0;
   }
 }
 
 .right {
   grid-area: b2;
+}
+
+.validation {
+  color: red;
 }

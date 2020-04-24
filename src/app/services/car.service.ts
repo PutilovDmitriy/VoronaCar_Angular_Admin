@@ -7,10 +7,21 @@ export interface Car {
   id?: string;
   number: string;
   model: Model;
-  lastService: string;
-  problems: string[];
-  isRepairing: boolean;
-  comments: string;
+  lastService?: string;
+  problems?: string[];
+  isRepairing?: boolean;
+  comments?: string;
+  info?: Info;
+}
+
+export interface Info {
+  VIN: string;
+  STS: string;
+  OSAGO: string;
+  dateOSAGO: Date;
+  code: string;
+  tel: string;
+  IMEI: string;
 }
 
 // type Problem =
@@ -34,5 +45,14 @@ export class CarService {
 
   getByNumber(number: string): Car {
     return this.cars.find((car) => car.number === number);
+  }
+
+  addCar(car: Car): Observable<Car> {
+    this.loading = true;
+    return this.http.post<Car>(`${URL_SERVER}/car/create`, car);
+  }
+
+  addCarState(car: Car) {
+    this.cars.push(car);
   }
 }

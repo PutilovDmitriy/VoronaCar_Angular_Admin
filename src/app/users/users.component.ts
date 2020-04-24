@@ -7,8 +7,6 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  @ViewChild('searchInput', { static: false }) searchInput: ElementRef;
-
   searchName: string;
 
   constructor(public userService: UserService) {}
@@ -27,7 +25,7 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  focusSearch() {
-    this.searchInput.nativeElement.focus();
+  updateSearch(text: string) {
+    this.searchName = text;
   }
 }

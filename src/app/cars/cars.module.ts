@@ -3,12 +3,19 @@ import { CarComponent } from './car/car.component';
 import { CarsComponent } from './cars.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../services/auth.guard';
+import { CarAddComponent } from './car-add/car-add.component';
+import { CarFreeComponent } from './car-free/car-free.component';
 
 @NgModule({
-  declarations: [CarComponent, CarsComponent],
+  declarations: [
+    CarComponent,
+    CarsComponent,
+    CarAddComponent,
+    CarFreeComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -21,12 +28,18 @@ import { AuthGuard } from '../services/auth.guard';
         canActivateChild: [AuthGuard],
         children: [
           {
+            path: 'add',
+            component: CarAddComponent,
+          },
+          {
             path: ':number',
             component: CarComponent,
           },
+          { path: '', component: CarFreeComponent },
         ],
       },
     ]),
+    ReactiveFormsModule,
   ],
 })
 export class CarsModule {}

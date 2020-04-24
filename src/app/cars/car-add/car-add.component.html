@@ -1,0 +1,60 @@
+<div>
+  <h3>Новый автомобиль</h3>
+  <form class="form-add-car" [formGroup]="form" (submit)="submit()">
+    <div class="flex-column">
+      <div class="input-line">
+        <label>Гос. номер</label>
+        <input type="text" placeholder="A000AA" formControlName="number" />
+      </div>
+      <span
+        *ngIf="form.get('number').invalid && form.get('number').touched"
+        class="validation"
+      >
+        <small *ngIf="form.get('number').errors.reg"
+          >Некоректный номер автомобиля</small
+        >
+      </span>
+      <div class="input-line">
+        <label>Марка автомобиля</label>
+        <select formControlName="model">
+          <option value="R">Renault</option>
+          <option value="W">Volkswagen</option>
+          <option value="K">KIA</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex-column" formGroupName="info">
+      <div class="input-line">
+        <label>VIN-код</label>
+        <input type="text" formControlName="VIN" />
+      </div>
+      <div class="input-line">
+        <label>Номер СТС</label>
+        <input type="text" formControlName="STS" />
+      </div>
+      <div class="input-line">
+        <label>Номер ОСАГО</label>
+        <input type="text" formControlName="OSAGO" />
+      </div>
+      <div class="input-line">
+        <label>Дата ОСАГО</label>
+        <input type="date" formControlName="dateOSAGO" />
+      </div>
+      <div class="input-line">
+        <label>Код магнитолы</label>
+        <input type="text" formControlName="code" />
+      </div>
+      <div class="input-line">
+        <label>Телефон</label>
+        <input type="text" formControlName="tel" />
+      </div>
+      <div class="input-line">
+        <label>IMEI</label>
+        <input type="text" formControlName="IMEI" />
+      </div>
+    </div>
+    <div class="btn-block">
+      <button class="btn" type="submit">Send</button>
+    </div>
+  </form>
+</div>

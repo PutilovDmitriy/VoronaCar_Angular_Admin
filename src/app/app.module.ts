@@ -13,7 +13,6 @@ import { UsersModule } from './users/users.module';
 import { CarsModule } from './cars/cars.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { FilterUsersPipe } from './pipes/filter-users.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +36,5 @@ import { FilterUsersPipe } from './pipes/filter-users.pipe';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [FilterUsersPipe],
 })
 export class AppModule {}

@@ -1,0 +1,54 @@
+h3 {
+  text-align: center;
+}
+.form-add-car {
+  display: flex;
+  flex-direction: column;
+  max-height: 82vh;
+  padding-right: 80px;
+  padding-left: 80px;
+  .input-line {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-top: 15px;
+  }
+  input {
+    height: 25px;
+    width: 60%;
+  }
+  select {
+    height: 31px;
+    width: 60.5%;
+  }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+}
+
+.btn-block {
+  grid-area: b3;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  button {
+    width: 40%;
+  }
+}
+
+.validation {
+  position: relative;
+  left: 125px;
+  font-size: 12px;
+  line-height: 15px;
+  height: 15px;
+  margin-top: 0;
+  margin-bottom: -15px;
+  text-align: center;
+}

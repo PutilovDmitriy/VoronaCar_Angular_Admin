@@ -7,8 +7,6 @@ import { CarService } from '../services/car.service';
   styleUrls: ['./cars.component.scss'],
 })
 export class CarsComponent implements OnInit {
-  @ViewChild('searchInput', { static: false }) searchInput: ElementRef;
-
   error: string;
   searchNumber: string;
 
@@ -26,7 +24,7 @@ export class CarsComponent implements OnInit {
     );
   }
 
-  focusSearch() {
-    this.searchInput.nativeElement.focus();
+  updateSearch(text: string) {
+    this.searchNumber = text;
   }
 }

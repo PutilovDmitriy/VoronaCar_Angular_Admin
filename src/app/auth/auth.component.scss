@@ -17,14 +17,10 @@ input {
   height: 30px;
   border: 1px solid #cccccc;
   border-radius: 2px;
- &.ng-invalid.ng-touched {
-  border: 1px solid red;
-}
+  &.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
   &:focus {
     border: 1px solid blue;
   }
-}
-
-.validation {
-  color: red;
 }

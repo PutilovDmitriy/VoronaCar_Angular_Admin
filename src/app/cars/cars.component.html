@@ -1,28 +1,25 @@
 <div class="gridPage">
   <div class="left">
-    <div class="search" (click)="focusSearch()">
-      <input type="text" [(ngModel)]="searchNumber" #searchInput />
-      <img
-        src="../../assets/images/search.png"
-        alt="search"
-        width="20px"
-        height="20px"
-      />
-    </div>
-    <div class="sub-left">
-      <div
-        *ngFor="let car of carService.cars | filterCars: searchNumber"
-        class="car"
-        [routerLink]="['/cars', car.number]"
-        routerLinkActive="active-car"
-      >
-        <img
-          [src]="car.model | decodeLogo"
-          [alt]="car.model"
-          width="40px"
-          height="40px"
-        />
-        <p>{{ car.number }}</p>
+    <app-top-block
+      (onChange)="updateSearch($event)"
+      link="/cars"
+    ></app-top-block>
+    <div class="scroll">
+      <div class="sub-scroll">
+        <div
+          *ngFor="let car of carService.cars | filterCars: searchNumber"
+          class="line"
+          [routerLink]="['/cars', car.number]"
+          routerLinkActive="active-line"
+        >
+          <img
+            [src]="car.model | decodeLogo"
+            [alt]="car.model"
+            width="40px"
+            height="40px"
+          />
+          <p>{{ car.number }}</p>
+        </div>
       </div>
     </div>
   </div>
