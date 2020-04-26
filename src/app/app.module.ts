@@ -13,7 +13,7 @@ import { UsersModule } from './users/users.module';
 import { CarsModule } from './cars/cars.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { ConvertTimePipe } from './pipes/convert-time.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import { ConvertTimePipe } from './pipes/convert-time.pipe';
     AuthComponent,
     NavbarComponent,
     ErrorPageComponent,
-    ConvertTimePipe,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +31,7 @@ import { ConvertTimePipe } from './pipes/convert-time.pipe';
     CarsModule,
     UsersModule,
     SharedModule,
+    BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),

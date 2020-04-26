@@ -1,1 +1,151 @@
-<p>{{ info.name }}</p>
+<div class="user" *ngIf="!shiftService.loading">
+  <h1>{{ user?.name }}</h1>
+  <div>
+    <div class="line" [ngSwitch]="namesEditInput.includes('login')">
+      <label>Номер телефона: &nbsp;</label>
+      <h3 *ngSwitchCase="false">{{ user?.login }}</h3>
+      <input
+        type="text"
+        *ngSwitchCase="true"
+        [(ngModel)]="login"
+        autocomplete="false"
+      />
+      <img
+        [src]="
+          namesEditInput.includes('login')
+            ? '/assets/images/save.png'
+            : '/assets/images/edit.png'
+        "
+        (click)="
+          namesEditInput.includes('login')
+            ? saveInput('login')
+            : openInput('login')
+        "
+      />
+      <img
+        src="/assets/images/close.png"
+        (click)="closeInput('login')"
+        *ngSwitchCase="true"
+      />
+    </div>
+    <div class="line" [ngSwitch]="namesEditInput.includes('name')">
+      <label>ФИО: &nbsp;</label>
+      <h4 *ngSwitchCase="false">{{ user?.name }}</h4>
+      <input
+        type="text"
+        *ngSwitchCase="true"
+        [(ngModel)]="name"
+        autocomplete="false"
+      />
+      <img
+        [src]="
+          namesEditInput.includes('name')
+            ? '/assets/images/save.png'
+            : '/assets/images/edit.png'
+        "
+        (click)="
+          namesEditInput.includes('name')
+            ? saveInput('name')
+            : openInput('name')
+        "
+      />
+      <img
+        src="/assets/images/close.png"
+        (click)="closeInput('name')"
+        *ngSwitchCase="true"
+      />
+    </div>
+    <div
+      class="password"
+      [@passwordBlock]="editPassword"
+      [ngSwitch]="namesEditInput.includes('password')"
+    >
+      <label
+        (click)="editPassword = 'on'; openInput('password')"
+        [@label]="editPassword"
+        >Изменить пароль:</label
+      >
+      <input type="password" [@input1]="editPassword" [(ngModel)]="password1" />
+      <input
+        type="password"
+        class="input2"
+        [@input2]="editPassword"
+        [disabled]="editPassword === 'off'"
+        [(ngModel)]="password2"
+      />
+      <img
+        src="/assets/images/save.png"
+        (click)="saveInput('password'); editPassword = 'off'"
+        *ngSwitchCase="true"
+      />
+      <img
+        src="/assets/images/close.png"
+        (click)="closeInput('password'); editPassword = 'off'"
+        *ngSwitchCase="true"
+      />
+    </div>
+  </div>
+  <div
+    class="table"
+    *ngIf="
+      shiftService.shifts.length !== 0 && shiftService.shifts !== undefined;
+      else shiftFree
+    "
+  >
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Дата</th>
+          <th>Длительность</th>
+          <th>Мойка (рубли)</th>
+          <th>Заправка (литры)</th>
+          <th>Обслуженные машины</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shift of shiftService.shifts; let idx = index">
+          <td class="num">{{ idx + 1 }}</td>
+          <td>{{ shift.shiftStart | date: "dd.MM.yyyy" }}</td>
+          <td>{{ shift.shiftTime | convertTime }}</td>
+          <td>{{ shift.wash }}</td>
+          <td>{{ shift.valueOil }}</td>
+          <td
+            [class.car-active-td]="carListIdx !== idx"
+            class="cars-td"
+            (click)="changeVisibleCarList(idx)"
+            [ngSwitch]="carListIdx === idx"
+          >
+            <div *ngSwitchCase="false" style="cursor: pointer;">
+              <a>{{ shift.carsList.length }}</a>
+            </div>
+            <div class="cars-block" *ngSwitchCase="true">
+              <div class="img">
+                <img src="/assets/images/back.png" width="25px" height="25px" />
+              </div>
+              <a
+                *ngFor="let car of shift.carsList"
+                [routerLink]="['/cars', car]"
+                >{{ car }}
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" class="itog">
+            Итого:
+          </td>
+          <td>{{ sumData("shiftTime") | convertTime }}</td>
+          <td>{{ sumData("wash") }}</td>
+          <td>{{ sumData("valueOil") }}</td>
+          <td style="background-color: darkblue;"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <ng-template #shiftFree>
+    <h3>Неоплаченых смен пока нет</h3>
+  </ng-template>
+</div>

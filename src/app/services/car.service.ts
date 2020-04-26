@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVER } from '../../env';
 import { Observable } from 'rxjs';
+import { User } from './user.service';
 
 export interface Car {
   id?: string;
@@ -43,8 +44,12 @@ export class CarService {
     return this.http.get<Car[]>(`${URL_SERVER}/car/info`);
   }
 
-  getByNumber(number: string): Car {
-    return this.cars.find((car) => car.number === number);
+  getByNumber(number: string): Observable<Car> {
+    return new Observable<Car>((observable) => {
+      setInterval(() => {
+        observable.next(this.cars.find((car) => car.number === number));
+      }, 100);
+    });
   }
 
   addCar(car: Car): Observable<Car> {

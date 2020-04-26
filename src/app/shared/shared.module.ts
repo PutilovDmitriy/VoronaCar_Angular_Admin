@@ -5,6 +5,7 @@ import { FilterUsersPipe } from '../pipes/filter-users.pipe';
 import { TopBlockComponent } from '../top-block/top-block.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ConvertTimePipe } from '../pipes/convert-time.pipe';
 
 @NgModule({
   imports: [FormsModule, RouterModule],
@@ -12,8 +13,15 @@ import { RouterModule } from '@angular/router';
     DecodeLogoPipe,
     FilterCarsPipe,
     FilterUsersPipe,
+    ConvertTimePipe,
     TopBlockComponent,
   ],
-  exports: [DecodeLogoPipe, FilterCarsPipe, FilterUsersPipe, TopBlockComponent],
+  exports: [
+    DecodeLogoPipe,
+    FilterCarsPipe,
+    FilterUsersPipe,
+    ConvertTimePipe,
+    TopBlockComponent,
+  ],
 })
 export class SharedModule {}

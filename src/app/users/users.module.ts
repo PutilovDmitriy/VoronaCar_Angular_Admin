@@ -5,14 +5,16 @@ import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../services/auth.guard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserFreeComponent } from './user-free/user-free.component';
 
 @NgModule({
-  declarations: [UsersComponent, UserComponent],
+  declarations: [UsersComponent, UserComponent, UserFreeComponent],
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -24,6 +26,7 @@ import { FormsModule } from '@angular/forms';
             path: ':id',
             component: UserComponent,
           },
+          { path: '', component: UserFreeComponent },
         ],
       },
     ]),

@@ -16,7 +16,7 @@ export interface Shift {
 @Injectable()
 export class ShiftService {
   loading = false;
-  shifts: Shift[];
+  shifts: Shift[] = [];
 
   constructor(private http: HttpClient) {}
 

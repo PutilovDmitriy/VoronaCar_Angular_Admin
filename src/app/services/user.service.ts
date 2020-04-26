@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { observable, Observable } from 'rxjs';
 import { URL_SERVER } from '../../env';
 
 export interface User {
@@ -19,6 +19,7 @@ export interface Token {
 })
 export class UserService {
   loading = false;
+  updating = false;
   isAuth = false;
   users: User[] = [];
 
@@ -44,8 +45,20 @@ export class UserService {
     });
   }
 
-  getById(id: string): User {
-    return this.users.find((user) => user._id === id);
+  getById(id: string): Observable<User> {
+    return new Observable<User>((observable) => {
+      setInterval(() => {
+        observable.next(this.users.find((user) => user._id === id));
+      }, 100);
+    });
+  }
+
+  updateUser(user: User): Observable<User> {
+    const token = localStorage.getItem('TOKEN');
+    return this.http.put<User>(`${URL_SERVER}/user/update`, {
+      token,
+      user,
+    });
   }
 
   deleteUser(id: string): Observable<any> {
