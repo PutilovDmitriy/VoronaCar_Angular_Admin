@@ -13,6 +13,7 @@ import { UsersModule } from './users/users.module';
 import { CarsModule } from './cars/cars.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ConvertTimePipe } from './pipes/convert-time.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { environment } from '../environments/environment';
     AuthComponent,
     NavbarComponent,
     ErrorPageComponent,
+    ConvertTimePipe,
   ],
   imports: [
     BrowserModule,

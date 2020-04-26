@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 export interface Car {
   id?: string;
   number: string;
-  model: Model;
+  model?: Model;
   lastService?: string;
   problems?: string[];
   isRepairing?: boolean;
@@ -15,13 +15,13 @@ export interface Car {
 }
 
 export interface Info {
-  VIN: string;
-  STS: string;
-  OSAGO: string;
-  dateOSAGO: Date;
-  code: string;
-  tel: string;
-  IMEI: string;
+  VIN?: string;
+  STS?: string;
+  OSAGO?: string;
+  dateOSAGO?: Date;
+  code?: string;
+  tel?: string;
+  IMEI?: string;
 }
 
 // type Problem =
@@ -54,5 +54,13 @@ export class CarService {
 
   addCarState(car: Car) {
     this.cars.push(car);
+  }
+
+  updateCar(number: string, info: Info): Observable<Car> {
+    this.loading = true;
+    return this.http.put<Car>(`${URL_SERVER}/car/update`, {
+      number,
+      info,
+    });
   }
 }
