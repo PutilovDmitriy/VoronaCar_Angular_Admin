@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { User, UserService } from '../../services/user.service';
 import { ShiftService } from '../../services/shift.service';
 import { Subscription } from 'rxjs';
@@ -97,11 +97,14 @@ export class UserComponent implements OnInit {
   name = '';
   password1 = null;
   password2 = null;
+  invalidPassword = false;
+  invalidLogin = false;
 
   constructor(
     private userService: UserService,
     public shiftService: ShiftService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -147,22 +150,13 @@ export class UserComponent implements OnInit {
       this.password2.trim() &&
       this.password1 !== this.password2
     ) {
-      console.log('No password');
+      return false;
     }
+    return true;
   }
 
-  submit() {
+  submit(data: User) {
     this.userService.updating = true;
-    const data: User = {
-      _id: this.user._id,
-      name: this.name,
-      login: this.login,
-    };
-    console.log(this.password1);
-    if (this.password1 !== null && this.password1 === this.password2) {
-      data.password = this.password1;
-    }
-    console.log(data);
     this.userService.updateUser(data).subscribe(
       (user) => {
         this.user = user;
@@ -184,13 +178,61 @@ export class UserComponent implements OnInit {
     this.namesEditInput = this.namesEditInput.filter(
       (name) => name !== nameInput
     );
-    if (nameInput === 'password') {
-      this.password1 = this.password2 = null;
+    switch (nameInput) {
+      case 'login':
+        this.login = this.user.login;
+        break;
+      case 'name':
+        this.name = this.user.name;
+        break;
+      case 'password':
+        this.password1 = this.password2 = null;
+        break;
     }
   }
 
   saveInput(nameInput: NameInput) {
-    this.submit();
-    this.closeInput(nameInput);
+    switch (nameInput) {
+      case 'login':
+        if (isNaN(Number(this.login))) {
+          this.invalidLogin = true;
+        } else {
+          this.invalidLogin = false;
+          this.submit({ _id: this.user._id, login: this.login });
+          this.closeInput(nameInput);
+        }
+        break;
+      case 'name':
+        this.submit({ _id: this.user._id, name: this.name });
+        this.closeInput(nameInput);
+        break;
+      case 'password':
+        if (nameInput !== 'password') {
+        } else if (this.validPasswords()) {
+          this.submit({ _id: this.user._id, password: this.password1 });
+          this.closeInput(nameInput);
+          this.editPassword = 'off';
+          this.invalidPassword = false;
+        } else {
+          this.invalidPassword = true;
+        }
+        break;
+    }
+  }
+
+  deleteUser() {
+    this.userService.deleting = true;
+    this.userService.deleteUser(this.user._id).subscribe(
+      () => {
+        this.userService.deleteUserFromState(this.user._id);
+        this.router.navigate(['/users']);
+      },
+      () => {
+        console.log('Ошибка удаления');
+      },
+      () => {
+        this.userService.deleting = false;
+      }
+    );
   }
 }

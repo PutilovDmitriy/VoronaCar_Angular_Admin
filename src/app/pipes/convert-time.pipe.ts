@@ -10,6 +10,6 @@ export class ConvertTimePipe implements PipeTransform {
     }
     let m = value % 60;
     let h = (value - m) / 60;
-    return `${h} ч. ${Math.round(m)} мин`;
+    return `${h}ч ${Math.round(m)}мин`;
   }
 }

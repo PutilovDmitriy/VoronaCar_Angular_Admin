@@ -1,0 +1,39 @@
+.user-add {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+
+input {
+  width: 100%;
+  &.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+  &:focus {
+    border: 2px solid cornflowerblue;
+  }
+}
+
+label {
+  align-self: flex-start;
+  margin: 10px 0 5px 10px;
+}
+
+button {
+  margin-top: 20px;
+}

@@ -1,5 +1,11 @@
 <div class="user" *ngIf="!shiftService.loading">
-  <h1>{{ user?.name }}</h1>
+  <div class="user-name-header">
+    <h1>{{ user?.name }}</h1>
+    <div class="user-delete" (click)="deleteUser()">
+      <h4>Удалить пользователя</h4>
+      <img src="/assets/images/trash.png" />
+    </div>
+  </div>
   <div>
     <div class="line" [ngSwitch]="namesEditInput.includes('login')">
       <label>Номер телефона: &nbsp;</label>
@@ -65,17 +71,24 @@
         [@label]="editPassword"
         >Изменить пароль:</label
       >
-      <input type="password" [@input1]="editPassword" [(ngModel)]="password1" />
+      <input
+        type="password"
+        [@input1]="editPassword"
+        [(ngModel)]="password1"
+        [class.invalid]="invalidPassword"
+      />
+      <img src="/assets/images/error.png" *ngIf="invalidPassword" />
       <input
         type="password"
         class="input2"
         [@input2]="editPassword"
         [disabled]="editPassword === 'off'"
         [(ngModel)]="password2"
+        [class.invalid]="invalidPassword"
       />
       <img
         src="/assets/images/save.png"
-        (click)="saveInput('password'); editPassword = 'off'"
+        (click)="saveInput('password')"
         *ngSwitchCase="true"
       />
       <img

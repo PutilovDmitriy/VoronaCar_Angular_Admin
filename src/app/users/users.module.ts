@@ -7,14 +7,19 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../services/auth.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserFreeComponent } from './user-free/user-free.component';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
-  declarations: [UsersComponent, UserComponent, UserFreeComponent],
+  declarations: [
+    UsersComponent,
+    UserComponent,
+    UserFreeComponent,
+    UserAddComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -22,6 +27,7 @@ import { UserFreeComponent } from './user-free/user-free.component';
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
         children: [
+          { path: 'add', component: UserAddComponent },
           {
             path: ':id',
             component: UserComponent,
@@ -30,6 +36,7 @@ import { UserFreeComponent } from './user-free/user-free.component';
         ],
       },
     ]),
+    ReactiveFormsModule,
   ],
 })
 export class UsersModule {}

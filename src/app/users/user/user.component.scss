@@ -6,6 +6,29 @@
   padding-right: 80px;
 }
 
+.user-name-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .user-delete {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    &:active {
+      background-color: red;
+      color: white;
+    }
+  }
+  img {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+  }
+}
+
 .line {
   display: flex;
   justify-content: flex-start;
@@ -26,10 +49,10 @@
   margin-bottom: 20px;
   height: 40px;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 10px;
   label {
     padding: 4px;
-    border-radius: 20px;
+    border-radius: 10px;
     color: #000;
   }
   input {
@@ -46,6 +69,10 @@
     margin-right: 15px;
     width: 25px;
     height: 25px;
+  }
+  .invalid {
+    border-color: red;
+    margin-right: 15px;
   }
 }
 

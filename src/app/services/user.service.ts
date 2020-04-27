@@ -5,7 +5,7 @@ import { URL_SERVER } from '../../env';
 
 export interface User {
   _id?: string;
-  login: string;
+  login?: string;
   password?: string;
   name?: string;
 }
@@ -20,6 +20,7 @@ export interface Token {
 export class UserService {
   loading = false;
   updating = false;
+  deleting = false;
   isAuth = false;
   users: User[] = [];
 
@@ -30,9 +31,9 @@ export class UserService {
     return this.http.post<Token>(`${URL_SERVER}/auth/login/admin`, loginInfo);
   }
 
-  userRegister(userInfo: User): Observable<User> {
+  userRegister(userInfo: User): Observable<any> {
     this.loading = true;
-    return this.http.post<User>(`${URL_SERVER}/auth/register`, userInfo);
+    return this.http.post<any>(`${URL_SERVER}/auth/register`, userInfo);
   }
 
   getUsers(): Observable<User[]> {
