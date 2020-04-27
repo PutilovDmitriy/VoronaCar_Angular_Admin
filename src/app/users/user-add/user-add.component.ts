@@ -31,8 +31,9 @@ export class UserAddComponent implements OnInit {
 
   submit() {
     this.userService.userRegister(this.form.value).subscribe(
-      (res) => {
-        console.log(res.message);
+      (user) => {
+        this.userService.addUserToState(user);
+        this.form.reset();
       },
       (error) => (this.error = error.error.message)
     );

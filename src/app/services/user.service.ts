@@ -36,6 +36,10 @@ export class UserService {
     return this.http.post<any>(`${URL_SERVER}/auth/register`, userInfo);
   }
 
+  addUserToState(userInfo: User): void {
+    this.users.push(userInfo);
+  }
+
   getUsers(): Observable<User[]> {
     this.loading = true;
     const token = localStorage.getItem('TOKEN');
