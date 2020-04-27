@@ -18,7 +18,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       login: new FormControl('', [
-        Validators.minLength(11),
+        Validators.minLength(10),
         Validators.required,
         MyValidators.number,
       ]),
