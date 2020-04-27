@@ -1,0 +1,100 @@
+{
+  "configVersion": 1,
+  "timestamp": 1588001419797,
+  "index": "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/favicon.ico",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/index.html",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/main-es2015.c6cf9f05c9e6ceaa18cc.js",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/main-es5.c6cf9f05c9e6ceaa18cc.js",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/manifest.webmanifest",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/polyfills-es2015.690002c25ea8557bb4b0.js",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/polyfills-es5.1fd9b76218eca8053895.js",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/runtime-es2015.1eba213af0b233498d9d.js",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/runtime-es5.1eba213af0b233498d9d.js",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/styles.7c611a1e9b1beddcea83.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-128x128.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-144x144.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-152x152.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-192x192.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-384x384.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-512x512.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-72x72.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-96x96.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/back.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/close.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/edit.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/error.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/kia.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/renault.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/save.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/search.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/trash.png",
+        "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/volkswagen.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/back.png": "6ff6d11300d771429512762da5ea325872cafbf5",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/close.png": "201cc802e7976bd845822c12ba27f0775a5627da",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/edit.png": "f6d7de88c029c1b28fc1cf6e75fd289acc620b05",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/error.png": "a2a57a9338421e6af5d3bbac2551a2ff0d6171f3",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/kia.png": "29364a667bd7cf194031ec07490ae69e54bd058e",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/renault.png": "81ab906ba5bf03cf56e0a9c62f706cfb9f1d8cf7",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/save.png": "c90c2b38ad9865d399d3cbe5e9f56e04d2693f83",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/search.png": "48a236e2248660b725c642f500d4024abe001b10",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/trash.png": "6bb864600d8dd3e9263b7c9944409841c84baf90",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/assets/images/volkswagen.png": "c54b91672ba95883641c68e1764e65ec1c3c9375",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/index.html": "0f1e1278dc322bdd4baa7c5ae929cba5c1ff12b9",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/main-es2015.c6cf9f05c9e6ceaa18cc.js": "0cecd3646cdd2fb1fd7bcd4015bdef521a2348a9",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/main-es5.c6cf9f05c9e6ceaa18cc.js": "454f9826fd8e070f76b5d10555332b96f314114e",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/manifest.webmanifest": "5d4b088e0fc1dfbfff06642a52b842b3a6f09692",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/polyfills-es2015.690002c25ea8557bb4b0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/polyfills-es5.1fd9b76218eca8053895.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://PutilovDmitriy.github.io/VoronaCar_Angular_Admin/styles.7c611a1e9b1beddcea83.css": "4cda1264bad3f6371a7fb58d438a32a482e4c1b5"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
