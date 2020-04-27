@@ -1,2 +1,150 @@
 .car {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 80px 20px 80px;
+  h2 {
+    align-self: center;
+  }
+}
+.car-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  max-height: 70vh;
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+}
+
+label {
+  font-size: 16px;
+}
+
+input {
+  margin-left: 10px;
+  height: 20px;
+}
+
+.info {
+  margin-left: 10px;
+}
+
+.buttons {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 7;
+  grid-row-end: 7;
+}
+
+button {
+  margin-right: 50px;
+  margin-top: 30px;
+  width: 150px;
+  border: 0;
+  border-radius: 5px;
+  &:active {
+    color: white;
+  }
+}
+
+.edit {
+  background-color: cornflowerblue;
+}
+.save {
+  background-color: greenyellow;
+}
+.delete {
+  background-color: red;
+}
+.cancel {
+  background-color: red;
+}
+.modal-delete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96.5vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    button {
+      margin: 30px 15px 0 15px;
+    }
+  }
+}
+.number {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.date {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.vin {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+.sts {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.osago {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.date-osago {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.code {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+.tel {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 6;
+  grid-row-end: 6;
+}
+
+.imei {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 6;
 }

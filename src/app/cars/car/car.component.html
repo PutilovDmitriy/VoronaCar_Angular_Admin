@@ -1,1 +1,71 @@
-<div class="car"></div>
+<div class="car">
+  <h2>{{ car ? car.number : "" }}</h2>
+  <div class="car-info">
+    <div class="number">
+      <label>Номер автомобиля:</label>
+      <label class="info">{{ car?.number }}</label>
+    </div>
+    <div class="date">
+      <label>Дата:</label>
+      <label class="info">{{ car?.lastService | date: "dd.MM.yyyy" }}</label>
+    </div>
+    <div class="vin">
+      <label>VIN:</label>
+      <label class="info">{{ car?.info?.VIN }}</label>
+    </div>
+    <div class="sts" [ngSwitch]="edit">
+      <label>СТС:</label>
+      <label class="info" *ngSwitchCase="false">{{ car?.info?.STS }}</label>
+      <input [(ngModel)]="STS" *ngSwitchCase="true" />
+    </div>
+    <div class="osago" [ngSwitch]="edit">
+      <label>ОСАГО:</label>
+      <label class="info" *ngSwitchCase="false">{{ car?.info?.OSAGO }}</label>
+      <input [(ngModel)]="OSAGO" *ngSwitchCase="true" />
+    </div>
+    <div class="date-osago" [ngSwitch]="edit">
+      <label>Дата начала страховки:</label>
+      <label class="info" *ngSwitchCase="false">{{
+        car?.info?.dateOSAGO | date: "dd.MM.yyyy"
+      }}</label>
+      <input type="date" [(ngModel)]="dateOSAGO" *ngSwitchCase="true" />
+    </div>
+    <div class="code">
+      <label>Код магнитолы:</label>
+      <label class="info">{{ car?.info?.code }}</label>
+    </div>
+    <div class="tel">
+      <label>Телефон:</label>
+      <label class="info">{{ car?.info?.tel }}</label>
+    </div>
+    <div class="imei">
+      <label>IMEI:</label>
+      <label class="info">{{ car?.info?.IMEI }}</label>
+    </div>
+    <div class="buttons">
+      <button
+        type="submit"
+        [class]="edit ? 'save' : 'edit'"
+        (click)="edit ? save() : (edit = true)"
+      >
+        {{ edit ? "Сохранить" : "Изменить" }}
+      </button>
+      <button
+        [class]="edit ? 'cancel' : 'delete'"
+        (click)="edit ? closeEdit() : (deleteMode = true)"
+      >
+        {{ edit ? "Отменить" : "Удалить" }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-delete" *ngIf="deleteMode">
+  <div>
+    <label>Вы уверены что хотите удалить автомобиль?</label>
+    <span>
+      <button class="delete" (click)="delete()">Удалить</button>
+      <button class="edit" (click)="deleteMode = false">Отменить</button>
+    </span>
+  </div>
+</div>

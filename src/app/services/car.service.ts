@@ -19,7 +19,7 @@ export interface Info {
   VIN?: string;
   STS?: string;
   OSAGO?: string;
-  dateOSAGO?: Date;
+  dateOSAGO?: Date | string;
   code?: string;
   tel?: string;
   IMEI?: string;
@@ -34,6 +34,8 @@ export type Model = 'R' | 'W' | 'K';
 })
 export class CarService {
   loading = false;
+  updating = false;
+  deleting = false;
 
   cars: Car[] = [];
 
@@ -62,10 +64,15 @@ export class CarService {
   }
 
   updateCar(number: string, info: Info): Observable<Car> {
-    this.loading = true;
+    this.updating = true;
     return this.http.put<Car>(`${URL_SERVER}/car/update`, {
       number,
       info,
     });
+  }
+
+  deleteCar(id: string): Observable<any> {
+    this.deleting = true;
+    return this.http.delete<any>(`${URL_SERVER}/car/${id}`);
   }
 }
