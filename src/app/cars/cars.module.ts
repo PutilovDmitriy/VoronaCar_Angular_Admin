@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../services/auth.guard';
 import { CarAddComponent } from './car-add/car-add.component';
 import { CarFreeComponent } from './car-free/car-free.component';
+import { LoadingsModule } from '../loadings/loadings.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CarFreeComponent } from './car-free/car-free.component';
     CommonModule,
     FormsModule,
     SharedModule,
+    LoadingsModule,
     RouterModule.forChild([
       {
         path: '',

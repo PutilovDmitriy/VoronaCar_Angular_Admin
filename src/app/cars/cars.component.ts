@@ -17,9 +17,11 @@ export class CarsComponent implements OnInit {
     this.carService.getCars().subscribe(
       (cars) => {
         this.carService.cars = cars;
-        console.log(this.carService.cars);
       },
-      (error) => (this.error = error.error.message),
+      (error) => {
+        this.error = error.error.message;
+        this.carService.loading = false;
+      },
       () => {
         this.carService.loading = false;
       }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { MyValidators } from '../../my.validators';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-user-add',
@@ -10,9 +11,11 @@ import { MyValidators } from '../../my.validators';
 })
 export class UserAddComponent implements OnInit {
   form: FormGroup;
-  error: any;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    public userService: UserService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -33,9 +36,20 @@ export class UserAddComponent implements OnInit {
     this.userService.userRegister(this.form.value).subscribe(
       (user) => {
         this.userService.addUserToState(user);
+        this.notificationService.text = 'Пользователь создан!';
+        this.notificationService.showBox = 'on';
         this.form.reset();
       },
-      (error) => (this.error = error.error.message)
+      (error) => {
+        this.notificationService.text = error.error.message;
+        this.notificationService.showBox = 'on';
+        this.userService.registering = false;
+        this.notificationService.offShow();
+      },
+      () => {
+        this.userService.registering = false;
+        this.notificationService.offShow();
+      }
     );
   }
 }

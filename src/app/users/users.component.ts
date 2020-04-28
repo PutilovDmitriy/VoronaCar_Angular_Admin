@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
       },
       (error) => {
         console.log(error.error.message);
+        this.userService.loading = false;
       },
       () => {
         this.userService.loading = false;

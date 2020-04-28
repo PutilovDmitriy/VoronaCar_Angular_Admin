@@ -8,6 +8,7 @@ import { AuthGuard } from '../services/auth.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserFreeComponent } from './user-free/user-free.component';
 import { UserAddComponent } from './user-add/user-add.component';
+import { LoadingsModule } from '../loadings/loadings.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UserAddComponent } from './user-add/user-add.component';
     CommonModule,
     FormsModule,
     SharedModule,
+    LoadingsModule,
     RouterModule.forChild([
       {
         path: '',

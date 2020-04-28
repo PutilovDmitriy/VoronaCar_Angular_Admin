@@ -42,10 +42,15 @@
       </small>
     </div>
 
-    <button class="btn" [disabled]="form.invalid">Зарегистрировать</button>
-
-    <div class="validation" *ngIf="error">
-      <small>{{ error }}</small>
-    </div>
+    <button class="btn" [disabled]="form.invalid">
+      <app-free-dots
+        width="40px"
+        height="10px"
+        background="#333333"
+        fill="#ffffff"
+        *ngIf="userService.registering; else lable"
+      ></app-free-dots>
+      <ng-template #lable>Зарегистрировать</ng-template>
+    </button>
   </form>
 </div>

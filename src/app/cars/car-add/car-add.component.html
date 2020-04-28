@@ -54,7 +54,16 @@
       </div>
     </div>
     <div class="btn-block">
-      <button class="btn" type="submit">Send</button>
+      <button class="btn" type="submit">
+        <app-free-dots
+          width="40px"
+          height="10px"
+          background="#333333"
+          fill="#ffffff"
+          *ngIf="carService.loading; else lable"
+        ></app-free-dots>
+        <ng-template #lable>Добавить</ng-template>
+      </button>
     </div>
   </form>
 </div>

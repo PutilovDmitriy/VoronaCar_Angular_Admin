@@ -40,7 +40,16 @@
       </small>
     </div>
 
-    <button class="btn" [disabled]="form.invalid">Войти</button>
+    <button class="btn" [disabled]="form.invalid">
+      <app-free-dots
+        width="40px"
+        height="10px"
+        background="#333333"
+        fill="#ffffff"
+        *ngIf="userService.loading; else lable"
+      ></app-free-dots>
+      <ng-template #lable>Войти</ng-template>
+    </button>
 
     <div class="validation" *ngIf="error">
       <small>{{ error }}</small>

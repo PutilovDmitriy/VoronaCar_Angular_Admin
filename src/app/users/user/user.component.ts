@@ -12,6 +12,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { NotificationService } from '../../services/notification.service';
 
 type NameInput = 'login' | 'name' | 'password';
 
@@ -104,7 +105,8 @@ export class UserComponent implements OnInit {
     private userService: UserService,
     public shiftService: ShiftService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -160,24 +162,24 @@ export class UserComponent implements OnInit {
     this.userService.updateUser(data).subscribe(
       (user) => {
         this.user = user;
+        this.notificationService.text = 'Пользователь обновлен!';
+        this.notificationService.showBox = 'on';
       },
       (error) => {
-        console.log(error);
+        this.notificationService.text = error.error.message;
+        this.notificationService.colorError = true;
+        this.notificationService.showBox = 'on';
+        this.userService.updating = false;
+        this.notificationService.offShow();
       },
       () => {
         this.userService.updating = false;
+        this.notificationService.offShow();
       }
     );
   }
 
-  openInput(nameInput: NameInput) {
-    this.namesEditInput.push(nameInput);
-  }
-
-  closeInput(nameInput: NameInput) {
-    this.namesEditInput = this.namesEditInput.filter(
-      (name) => name !== nameInput
-    );
+  updateValueInput(nameInput: NameInput) {
     switch (nameInput) {
       case 'login':
         this.login = this.user.login;
@@ -189,6 +191,17 @@ export class UserComponent implements OnInit {
         this.password1 = this.password2 = null;
         break;
     }
+  }
+
+  openInput(nameInput: NameInput) {
+    this.namesEditInput.push(nameInput);
+  }
+
+  closeInput(nameInput: NameInput) {
+    this.namesEditInput = this.namesEditInput.filter(
+      (name) => name !== nameInput
+    );
+    this.updateValueInput(nameInput);
   }
 
   saveInput(nameInput: NameInput) {
@@ -225,13 +238,20 @@ export class UserComponent implements OnInit {
     this.userService.deleteUser(this.user._id).subscribe(
       () => {
         this.userService.deleteUserFromState(this.user._id);
+        this.notificationService.text = 'Пользователь удален!';
+        this.notificationService.showBox = 'on';
         this.router.navigate(['/users']);
       },
-      () => {
-        console.log('Ошибка удаления');
+      (error) => {
+        this.notificationService.text = error.error.message;
+        this.notificationService.colorError = true;
+        this.notificationService.showBox = 'on';
+        this.userService.deleting = false;
+        this.notificationService.offShow();
       },
       () => {
         this.userService.deleting = false;
+        this.notificationService.offShow();
       }
     );
   }

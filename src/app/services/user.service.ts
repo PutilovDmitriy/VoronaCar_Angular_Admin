@@ -19,6 +19,7 @@ export interface Token {
 })
 export class UserService {
   loading = false;
+  registering = false;
   updating = false;
   deleting = false;
   isAuth = false;
@@ -32,7 +33,7 @@ export class UserService {
   }
 
   userRegister(userInfo: User): Observable<any> {
-    this.loading = true;
+    this.registering = true;
     return this.http.post<any>(`${URL_SERVER}/auth/register`, userInfo);
   }
 

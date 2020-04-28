@@ -14,7 +14,7 @@ import { CarsModule } from './cars/cars.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotificationComponent } from './notification/notification.component';
+import { LoadingsModule } from './loadings/loadings.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import { NotificationComponent } from './notification/notification.component';
     AuthComponent,
     NavbarComponent,
     ErrorPageComponent,
-    NotificationComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +33,7 @@ import { NotificationComponent } from './notification/notification.component';
     UsersModule,
     SharedModule,
     BrowserAnimationsModule,
+    LoadingsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVER } from '../../env';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { User } from './user.service';
+import { catchError } from 'rxjs/operators';
 
 export interface Car {
   id?: string;
@@ -71,8 +72,16 @@ export class CarService {
     });
   }
 
-  deleteCar(id: string): Observable<any> {
+  deleteCar(number: string): Observable<any> {
     this.deleting = true;
-    return this.http.delete<any>(`${URL_SERVER}/car/${id}`);
+    return this.http.delete<any>(`${URL_SERVER}/car/${number}`).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  deleteByNumber(number: string) {
+    this.cars = this.cars.filter((car) => car.number !== number);
   }
 }

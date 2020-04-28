@@ -13,7 +13,7 @@ export class AuthComponent implements OnInit {
   form: FormGroup;
   error: string;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(public userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MyValidators } from '../../my.validators';
 import { CarService } from '../../services/car.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-car-add',
@@ -12,7 +13,10 @@ export class CarAddComponent implements OnInit {
   form: FormGroup;
   error: any;
 
-  constructor(private carService: CarService) {}
+  constructor(
+    public carService: CarService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -35,10 +39,20 @@ export class CarAddComponent implements OnInit {
       (car) => {
         this.carService.loading = false;
         this.carService.addCarState(car);
+        this.notificationService.text = 'Авто добавлено!';
+        this.notificationService.showBox = 'on';
         this.form.reset();
       },
       (error) => {
         this.error = error.error.message;
+        this.notificationService.text = error.error.message;
+        this.notificationService.showBox = 'on';
+        this.notificationService.offShow();
+        this.carService.loading = false;
+      },
+      () => {
+        this.notificationService.offShow();
+        this.carService.loading = false;
       }
     );
   }

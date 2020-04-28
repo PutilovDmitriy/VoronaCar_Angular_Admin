@@ -27,6 +27,7 @@ input {
   &:focus {
     border: 2px solid cornflowerblue;
   }
+  box-sizing: border-box;
 }
 
 label {
@@ -36,4 +37,5 @@ label {
 
 button {
   margin-top: 20px;
+  width: 100%;
 }

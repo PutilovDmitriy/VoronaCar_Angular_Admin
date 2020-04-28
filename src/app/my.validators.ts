@@ -9,8 +9,7 @@ export class MyValidators {
   }
   static numberAuto(control: FormControl): { [key: string]: boolean } {
     const reg = /^[АВЕКМНОРСТУХABEKMHOPCTYX]\d{3}(?<!000)[АВЕКМНОРСТУХABEKMHOPCTYX]{2}/;
-    console.log();
-    if (!reg.test(control.value.toUpperCase())) {
+    if (!reg.test(control.value?.toUpperCase())) {
       return { reg: true };
     }
     return null;
