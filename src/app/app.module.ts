@@ -14,6 +14,7 @@ import { CarsModule } from './cars/cars.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthComponent,
     NavbarComponent,
     ErrorPageComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,

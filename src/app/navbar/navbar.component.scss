@@ -4,7 +4,8 @@
   top: 0;
   height: 60px;
   width: 100%;
-  background-color: blueviolet;
+  min-width: 680px;
+  background-color: #7d4cdb;
   box-sizing: border-box;
   padding: 0 25px 0 60px;
   color: white;
@@ -12,7 +13,7 @@
     display: flex;
     align-items: center;
     outline: none;
-    cursor: pointer ;
+    cursor: pointer;
   }
 }
 

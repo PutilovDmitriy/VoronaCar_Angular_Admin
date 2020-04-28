@@ -1,7 +1,7 @@
 {
-  "name": "new",
-  "short_name": "new",
-  "theme_color": "#1976d2",
+  "name": "VoronaCar-Admin",
+  "short_name": "VC Admin",
+  "theme_color": "#7D4CDB",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
