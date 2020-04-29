@@ -85,6 +85,9 @@ tbody {
   tr:hover {
     background-color: lightyellow;
   }
+  .checked-tr {
+    background-color: lightyellow;
+  }
 }
 
 td,
@@ -114,7 +117,7 @@ th {
 }
 
 .num {
-  width: 50px;
+  width: 25px;
 }
 
 td {
@@ -131,12 +134,14 @@ td {
 }
 .cars-td {
   width: 170px;
+
 }
 
 .cars-block {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   padding-right: 10px;
   .img {
     display: flex;
@@ -149,4 +154,52 @@ a {
 a:hover {
   color: blue;
   text-decoration: underline;
+}
+.cars {
+  display: flex;
+  flex-direction: column;
+}
+
+.car{
+  background-color: #7d4cdb;
+  border-radius: 10px;
+  margin-top: 5px;
+  padding: 0 10px;
+  color: white;
+  outline: none;
+  &:hover {
+    label{
+      text-decoration: underline;
+    }
+    .car-value {
+      text-decoration: none;
+    }
+  }
+  &:active{
+    background-color: white;
+    color: #000000;
+
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.car-value{
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.delete{
+  color: #ffffff;
+  background-color: #ff0d0dc9;
+  border: 0;
+  border-radius: 10px;
+  &:active {
+    color: #000000;
+  }
+  &:disabled {
+    background-color: #cccccc;
+    color: black;
+  }
 }

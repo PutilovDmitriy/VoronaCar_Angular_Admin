@@ -108,7 +108,7 @@
     <table>
       <thead>
         <tr>
-          <th></th>
+          <th colspan="2"></th>
           <th>Дата</th>
           <th>Длительность</th>
           <th>Мойка (рубли)</th>
@@ -117,8 +117,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let shift of shiftService.shifts; let idx = index">
-          <td class="num">{{ idx + 1 }}</td>
+        <tr
+          *ngFor="let shift of shiftService.shifts; let idx = index"
+          [class.checked-tr]="checkedShift.includes(shift._id)"
+        >
+          <td
+            class="num"
+            (click)="
+              checkedShift.includes(shift._id)
+                ? uncheckShift(shift._id)
+                : checkShift(shift._id)
+            "
+          >
+            <input
+              type="checkbox"
+              [checked]="checkedShift.includes(shift._id)"
+            />
+          </td>
+          <td class="num">
+            {{ idx + 1 }}
+          </td>
           <td>{{ shift.shiftStart | date: "dd.MM.yyyy" }}</td>
           <td>{{ shift.shiftTime | convertTime }}</td>
           <td>{{ shift.wash }}</td>
@@ -136,24 +154,37 @@
               <div class="img">
                 <img src="assets/images/back.png" width="25px" height="25px" />
               </div>
-              <a
-                *ngFor="let car of shift.carsList"
-                [routerLink]="['/cars', car]"
-                >{{ car }}
-              </a>
+              <div class="cars">
+                <div
+                  *ngFor="let car of shift.carsList"
+                  class="car"
+                  [routerLink]="['/cars', car.number]"
+                >
+                  <label>{{ car.number }}</label>
+                  <label class="car-value">{{ car.value }}&thinsp;л.</label>
+                </div>
+              </div>
             </div>
           </td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="2" class="itog">
+          <td colspan="3" class="itog">
             Итого:
           </td>
           <td>{{ sumData("shiftTime") | convertTime }}</td>
           <td>{{ sumData("wash") }}</td>
           <td>{{ sumData("valueOil") }}</td>
-          <td style="background-color: darkblue;"></td>
+          <td>
+            <button
+              (click)="deleteShift()"
+              class="delete"
+              [disabled]="!checkedShift.length"
+            >
+              Удалить
+            </button>
+          </td>
         </tr>
       </tfoot>
     </table>

@@ -93,6 +93,7 @@ export class UserComponent implements OnInit {
   user: User;
   sub: Subscription;
   carListIdx: number | null = null;
+  checkedShift: string[] = [];
   namesEditInput: string[] = [];
   login = '';
   name = '';
@@ -124,6 +125,23 @@ export class UserComponent implements OnInit {
         this.shiftService.loading = false;
       });
     });
+  }
+
+  checkShift(id: string) {
+    this.checkedShift.push(id);
+  }
+
+  uncheckShift(id: string) {
+    this.checkedShift = this.checkedShift.filter((shiftId) => shiftId !== id);
+  }
+
+  deleteShift() {
+    this.shiftService
+      .deleteShifts(this.user._id, this.checkedShift)
+      .subscribe((shifts) => {
+        this.shiftService.shifts = shifts;
+        this.shiftService.deleting = false;
+      });
   }
 
   sumData(key: string): number {
