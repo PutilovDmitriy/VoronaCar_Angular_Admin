@@ -10,7 +10,7 @@
 .car-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   max-height: 70vh;
 }
 
@@ -36,8 +36,8 @@ input {
 .buttons {
   grid-column-start: 1;
   grid-column-end: 3;
-  grid-row-start: 7;
-  grid-row-end: 7;
+  grid-row-start: 8;
+  grid-row-end: 8;
 }
 
 button {
@@ -88,6 +88,20 @@ button {
     }
   }
 }
+
+.comment {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 7;
+  grid-row-end: 7;
+  textarea{
+    resize: none
+  }
+  label{
+    margin-right: 10px;
+  }
+}
+
 .number {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -148,3 +162,4 @@ button {
   grid-row-start: 6;
   grid-row-end: 6;
 }
+

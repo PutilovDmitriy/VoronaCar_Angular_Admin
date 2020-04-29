@@ -17,6 +17,7 @@ export class CarComponent implements OnInit {
   OSAGO = '';
   dateOSAGO: Date | string = '';
   deleteMode = false;
+  comments = '';
 
   constructor(
     private carService: CarService,
@@ -34,6 +35,7 @@ export class CarComponent implements OnInit {
           this.STS = this.car?.info?.STS;
           this.OSAGO = this.car?.info?.OSAGO;
           this.dateOSAGO = String(this.car?.info?.dateOSAGO).slice(0, 10);
+          this.comments = this.car.comments;
         }
       });
     });
@@ -45,11 +47,12 @@ export class CarComponent implements OnInit {
       OSAGO: this.OSAGO,
       dateOSAGO: new Date(this.dateOSAGO),
     };
-    this.carService.updateCar(this.car.number, data).subscribe(
+    this.carService.updateCar(this.car.number, this.comments, data).subscribe(
       (car) => {
         this.car = car;
         this.notificationService.text = 'Информация обновлена!';
         this.notificationService.showBox = 'on';
+        this.edit = false;
       },
       (error) => {
         this.notificationService.text = error.error.message;
@@ -95,5 +98,6 @@ export class CarComponent implements OnInit {
     this.OSAGO = this.car?.info?.OSAGO;
     this.dateOSAGO = this.car?.info?.dateOSAGO;
     this.edit = false;
+    this.comments = this.car?.comments;
   }
 }

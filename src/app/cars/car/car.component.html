@@ -42,6 +42,19 @@
       <label>IMEI:</label>
       <label class="info">{{ car?.info?.IMEI }}</label>
     </div>
+    <div class="comment">
+      <label>Комментарий:</label>
+      <textarea
+        name=""
+        id=""
+        cols="100"
+        rows="2"
+        name="comment"
+        [(ngModel)]="comments"
+        [readonly]="!this.edit"
+      >
+      </textarea>
+    </div>
     <div class="buttons">
       <button
         type="submit"
