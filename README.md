@@ -6,4 +6,4 @@ npm run start
 npm run build
 
 #build git pages
-ng build --prod --baseHref=”https://voronacarmaster.github.io/admin/”
+ng build --prod --baseHref ”https://voronacarmaster.github.io/admin/”
