@@ -39,19 +39,12 @@ export class CarAddComponent implements OnInit {
       (car) => {
         this.carService.loading = false;
         this.carService.addCarState(car);
-        this.notificationService.text = 'Авто добавлено!';
-        this.notificationService.showBox = 'on';
+        this.notificationService.showInfo('Авто добавлено!');
         this.form.reset();
       },
       (error) => {
         this.error = error.error.message;
-        this.notificationService.text = error.error.message;
-        this.notificationService.showBox = 'on';
-        this.notificationService.offShow();
-        this.carService.loading = false;
-      },
-      () => {
-        this.notificationService.offShow();
+        this.notificationService.showError(error.error.message);
         this.carService.loading = false;
       }
     );

@@ -50,20 +50,13 @@ export class CarComponent implements OnInit {
     this.carService.updateCar(this.car.number, this.comments, data).subscribe(
       (car) => {
         this.car = car;
-        this.notificationService.text = 'Информация обновлена!';
-        this.notificationService.showBox = 'on';
+        this.carService.updating = false;
+        this.notificationService.showInfo('Информация обновлена!');
         this.edit = false;
       },
       (error) => {
-        this.notificationService.text = error.error.message;
-        this.notificationService.colorError = true;
-        this.notificationService.showBox = 'on';
+        this.notificationService.showError(error.error.message);
         this.carService.updating = false;
-        this.notificationService.offShow();
-      },
-      () => {
-        this.carService.updating = false;
-        this.notificationService.offShow();
       }
     );
   }
@@ -71,24 +64,17 @@ export class CarComponent implements OnInit {
   delete() {
     this.carService.deleteCar(this.car.number).subscribe(
       (res) => {
-        this.notificationService.text = 'Автомобиль удален!';
-        this.notificationService.showBox = 'on';
+        this.notificationService.showInfo('Автомобиль удален!');
         this.carService.deleteByNumber(this.car.number);
         this.router.navigate(['/cars']);
+        this.carService.deleting = false;
+        this.deleteMode = false;
       },
       (error) => {
         this.edit = false;
-        this.notificationService.colorError = true;
-        this.notificationService.showBox = 'on';
-        this.notificationService.text = error.error.message;
+        this.notificationService.showError(error.error.message);
         this.carService.deleting = false;
         this.deleteMode = false;
-        this.notificationService.offShow();
-      },
-      () => {
-        this.carService.deleting = false;
-        this.deleteMode = false;
-        this.notificationService.offShow();
       }
     );
   }

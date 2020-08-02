@@ -1,0 +1,113 @@
+.left {
+  .title {
+    text-align: center;
+  }
+}
+.active {
+  background-color: #87CEFA;
+}
+.chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+  box-sizing: border-box;
+  &__tags {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    border-left: 1px dashed black;
+    border-right: 1px dashed black;
+    padding: 0 5px;
+    &__tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      width: 130px;
+      padding: 5px;
+      height: 35px;
+      margin-right: 5px;
+      border-radius: 10px;
+      border: 1px solid black;
+      font-size: 15px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background-color: #ccc;
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: coral;
+      border-radius: 5px;
+    }
+  }
+  &__message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    &__text {
+      border: 1px solid #cccccc;
+      border-radius: 10px;
+      padding: 5px;
+      width: 70%;
+    }
+    &__form {
+      margin-top: 20px;
+      width: 70%;
+      height: 100px;
+    }
+    &__warning {
+      color: red;
+    }
+    &__buttons {
+      margin-top: 20px;
+      button {
+        margin: 0 20px;
+        width: 150px;
+        border: 0;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #ffffff;
+        &:active {
+          color: #333333;
+        }
+      }
+
+      .save {
+        background-color: cornflowerblue;
+      }
+      .delete {
+        background-color: red;
+      }
+    }
+  }
+}

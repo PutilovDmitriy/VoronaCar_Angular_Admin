@@ -6,11 +6,18 @@ import { LoginGuard } from './services/login.guard';
 
 const routes: Routes = [
   { path: 'login', component: AuthComponent, canActivate: [LoginGuard] },
-  {path: 'cars', loadChildren: () => import('./cars/cars.module').then((m) => m.CarsModule)},
+  {
+    path: 'cars',
+    loadChildren: () => import('./cars/cars.module').then((m) => m.CarsModule),
+  },
   {
     path: 'users',
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'bot',
+    loadChildren: () => import('./bot/bot.module').then((m) => m.BotModule),
   },
   { path: '', redirectTo: '/cars', pathMatch: 'full' },
   { path: '**', component: ErrorPageComponent },

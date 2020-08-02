@@ -14,8 +14,8 @@ import { NotificationService } from '../services/notification.service';
   styleUrls: ['./notification.component.scss'],
   animations: [
     trigger('box', [
-      state('off', style({ right: '-250px' })),
-      state('on', style({ right: '0px' })),
+      state('off', style({ visibility: 'hidden' })),
+      state('on', style({ visibility: 'visible' })),
       transition('off => on', animate(200)),
     ]),
   ],

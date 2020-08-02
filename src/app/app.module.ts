@@ -15,6 +15,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingsModule } from './loadings/loadings.module';
+import { BotModule } from './bot/bot.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoadingsModule } from './loadings/loadings.module';
     HttpClientModule,
     CarsModule,
     UsersModule,
+    BotModule,
     SharedModule,
     BrowserAnimationsModule,
     LoadingsModule,

@@ -36,19 +36,13 @@ export class UserAddComponent implements OnInit {
     this.userService.userRegister(this.form.value).subscribe(
       (user) => {
         this.userService.addUserToState(user);
-        this.notificationService.text = 'Пользователь создан!';
-        this.notificationService.showBox = 'on';
+        this.notificationService.showInfo('Пользователь создан');
         this.form.reset();
+        this.userService.registering = false;
       },
       (error) => {
-        this.notificationService.text = error.error.message;
-        this.notificationService.showBox = 'on';
         this.userService.registering = false;
-        this.notificationService.offShow();
-      },
-      () => {
-        this.userService.registering = false;
-        this.notificationService.offShow();
+        this.notificationService.showError(error.error.message);
       }
     );
   }

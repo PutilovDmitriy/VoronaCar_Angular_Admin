@@ -180,19 +180,12 @@ export class UserComponent implements OnInit {
     this.userService.updateUser(data).subscribe(
       (user) => {
         this.user = user;
-        this.notificationService.text = 'Пользователь обновлен!';
-        this.notificationService.showBox = 'on';
+        this.notificationService.showInfo('Пользователь обновлен!');
+        this.userService.updating = false;
       },
       (error) => {
-        this.notificationService.text = error.error.message;
-        this.notificationService.colorError = true;
-        this.notificationService.showBox = 'on';
+        this.notificationService.showError(error.error.message);
         this.userService.updating = false;
-        this.notificationService.offShow();
-      },
-      () => {
-        this.userService.updating = false;
-        this.notificationService.offShow();
       }
     );
   }
@@ -256,20 +249,12 @@ export class UserComponent implements OnInit {
     this.userService.deleteUser(this.user._id).subscribe(
       () => {
         this.userService.deleteUserFromState(this.user._id);
-        this.notificationService.text = 'Пользователь удален!';
-        this.notificationService.showBox = 'on';
-        this.router.navigate(['/users']);
+        this.notificationService.showInfo('Пользователь удален!');
+        this.userService.deleting = false;
       },
       (error) => {
-        this.notificationService.text = error.error.message;
-        this.notificationService.colorError = true;
-        this.notificationService.showBox = 'on';
+        this.notificationService.showError(error.error.message);
         this.userService.deleting = false;
-        this.notificationService.offShow();
-      },
-      () => {
-        this.userService.deleting = false;
-        this.notificationService.offShow();
       }
     );
   }

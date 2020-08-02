@@ -1,0 +1,11 @@
+<svg bind-attr.width="size" bind-attr.height="size" viewBox="0 0 128 128" xml:space="preserve">
+  <rect x="0" y="0" width="100%" height="100%" fill="#FFFFFF" />
+  <g>
+    <linearGradient id="linear-gradient">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" bind-attr.stop-color="color"/>
+    </linearGradient>
+      <path d="M63.85 0A63.85 63.85 0 1 1 0 63.85 63.85 63.85 0 0 1 63.85 0zm.65 19.5a44 44 0 1 1-44 44 44 44 0 0 1 44-44z" fill="url(#linear-gradient)" fill-rule="evenodd"/>
+    <animateTransform attributeName="transform" type="rotate" from="360 64 64" to="0 64 64" dur="1080ms" repeatCount="indefinite"></animateTransform>
+  </g>
+</svg>

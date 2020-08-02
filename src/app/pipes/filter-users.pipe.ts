@@ -6,7 +6,6 @@ import { User } from '../services/user.service';
 })
 export class FilterUsersPipe implements PipeTransform {
   transform(value: User[], text: string = ''): User[] {
-    console.log(text);
     if (text.trim()) {
       return value.filter((user) => {
         return user.name.toLowerCase().includes(text.toLowerCase());
