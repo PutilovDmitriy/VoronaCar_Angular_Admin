@@ -4,7 +4,11 @@
     <input type="text" placeholder="Логин" formControlName="login" />
 
     <div
-      *ngIf="form.get('login').invalid && form.get('login').touched"
+      *ngIf="
+        form.get('login').invalid &&
+        form.get('login').touched &&
+        form.get('login').value.trim()
+      "
       class="validation"
     >
       <small *ngIf="form.get('login').errors.required">
@@ -28,7 +32,11 @@
     <input type="password" placeholder="Пароль" formControlName="password" />
 
     <div
-      *ngIf="form.get('password').invalid && form.get('password').touched"
+      *ngIf="
+        form.get('password').invalid &&
+        form.get('password').touched &&
+        form.get('password').value.trim()
+      "
       class="validation"
     >
       <small *ngIf="form.get('password').errors.required">

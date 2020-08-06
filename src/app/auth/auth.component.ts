@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MyValidators } from '../my.validators';
 import { UserService, User } from '../services/user.service';
 import { Router } from '@angular/router';
 
@@ -18,9 +17,8 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       login: new FormControl('', [
-        Validators.minLength(10),
+        Validators.minLength(5),
         Validators.required,
-        MyValidators.number,
       ]),
       password: new FormControl('', [
         Validators.minLength(6),

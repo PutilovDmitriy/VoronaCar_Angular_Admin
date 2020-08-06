@@ -23,7 +23,6 @@ export class UserAddComponent implements OnInit {
       login: new FormControl('', [
         Validators.minLength(11),
         Validators.required,
-        MyValidators.number,
       ]),
       password: new FormControl('', [
         Validators.minLength(6),
