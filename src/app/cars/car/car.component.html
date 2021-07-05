@@ -42,18 +42,26 @@
       <label>IMEI:</label>
       <label class="info">{{ car?.info?.IMEI }}</label>
     </div>
-    <div class="comment">
-      <label>Комментарий:</label>
-      <textarea
-        name=""
-        id=""
-        cols="100"
-        rows="2"
-        name="comment"
-        [(ngModel)]="comments"
-        [readonly]="!this.edit"
-      >
-      </textarea>
+    <div class="problems">
+      <label>Проблемы:</label>
+      <div class="problems__add-problem">
+        <textarea
+          name=""
+          id=""
+          cols="100"
+          rows="2"
+          name="comment"
+          [(ngModel)]="newProblem"
+        >
+        </textarea>
+        <button class="problems__add-problem__button" (click)="addNewProblem()">
+          Добавить
+        </button>
+      </div>
+      <div class="problems__problem" *ngFor="let problem of problems" [class.active]="problem.checked" (click)="checkProblem(problem)">
+        <input class="problems__problem__check" type="checkbox" [checked]="problem.checked"/>
+        <label>{{ problem.text }}</label>
+      </div>
     </div>
     <div class="buttons">
       <button

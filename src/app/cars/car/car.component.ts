@@ -17,7 +17,8 @@ export class CarComponent implements OnInit {
   OSAGO = '';
   dateOSAGO: Date | string = '';
   deleteMode = false;
-  comments = '';
+  problems: Array<ProblemItem> = [];
+  newProblem = '';
 
   constructor(
     private carService: CarService,
@@ -35,9 +36,18 @@ export class CarComponent implements OnInit {
           this.STS = this.car?.info?.STS;
           this.OSAGO = this.car?.info?.OSAGO;
           this.dateOSAGO = String(this.car?.info?.dateOSAGO).slice(0, 10);
-          this.comments = this.car.comments;
+          this.problems = this.getProblemsItem(this.car?.problems);
         }
       });
+    });
+  }
+
+  getProblemsItem(problems: string[] | undefined): Array<ProblemItem> {
+    if (!problems) {
+      return [];
+    }
+    return problems.map((p) => {
+      return { text: p, checked: false };
     });
   }
 
@@ -47,7 +57,8 @@ export class CarComponent implements OnInit {
       OSAGO: this.OSAGO,
       dateOSAGO: new Date(this.dateOSAGO),
     };
-    this.carService.updateCar(this.car.number, this.comments, data).subscribe(
+    const problems = this.problems.filter((p) => !p.checked).map((p) => p.text);
+    this.carService.updateCar(this.car.number, problems, data).subscribe(
       (car) => {
         this.car = car;
         this.carService.updating = false;
@@ -84,6 +95,26 @@ export class CarComponent implements OnInit {
     this.OSAGO = this.car?.info?.OSAGO;
     this.dateOSAGO = this.car?.info?.dateOSAGO;
     this.edit = false;
-    this.comments = this.car?.comments;
+    this.problems = this.getProblemsItem(this.car?.problems);
   }
+
+  addNewProblem() {
+    if (this.newProblem) {
+      this.problems.push({ text: this.newProblem, checked: false });
+      this.newProblem = '';
+      this.edit = true;
+    }
+  }
+
+  checkProblem(problem: ProblemItem) {
+    problem.checked = !problem.checked;
+    if (!this.edit) {
+      this.edit = true;
+    }
+  }
+}
+
+interface ProblemItem {
+  text: string;
+  checked: boolean;
 }

@@ -64,12 +64,12 @@ export class CarService {
     this.cars.push(car);
   }
 
-  updateCar(number: string, comments: string, info: Info): Observable<Car> {
+  updateCar(number: string, problems: string[], info: Info): Observable<Car> {
     this.updating = true;
     return this.http.put<Car>(`${URL_SERVER}/car/update`, {
       number,
       info,
-      comments,
+      problems,
     });
   }
 

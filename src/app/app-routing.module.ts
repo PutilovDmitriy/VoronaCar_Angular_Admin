@@ -15,10 +15,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
   },
-  {
-    path: 'bot',
-    loadChildren: () => import('./bot/bot.module').then((m) => m.BotModule),
-  },
   { path: '', redirectTo: '/cars', pathMatch: 'full' },
   { path: '**', component: ErrorPageComponent },
 ];
