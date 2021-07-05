@@ -1,0 +1,18 @@
+<div class="report">
+  <div class="report__content">
+    <h2>Отчет по обслуживанию</h2>
+    <div>
+      <label>Дата начала:</label>
+      <input [(ngModel)]="startDate" type="date">
+    </div>
+    <div>
+      <label>Дата конца:</label>
+      <input [(ngModel)]="endDate" type="date">
+    </div>
+    <div>
+      <label>Номер:</label>
+      <input [(ngModel)]="number" type="text">
+    </div>
+    <button class="report__button" (click)="download()" [disabled]="!startDate || !endDate">Скачать</button>
+  </div>
+</div>

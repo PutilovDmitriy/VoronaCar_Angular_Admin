@@ -15,11 +15,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingsModule } from './loadings/loadings.module';
+import {ReportComponent} from './report/report.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
+    ReportComponent,
     NavbarComponent,
     ErrorPageComponent,
   ],

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { URL_SERVER } from '../../env';
 import { Observable, throwError } from 'rxjs';
 import { User } from './user.service';
@@ -84,5 +84,18 @@ export class CarService {
 
   deleteByNumber(number: string) {
     this.cars = this.cars.filter((car) => car.number !== number);
+  }
+
+  getServiceRecord(start: string, end: string, numb) {
+    const httpParams = Object.create({});
+    httpParams.start = start;
+    httpParams.end = end;
+    if (numb) {
+     httpParams.number = numb;
+    }
+    return this.http.get(`${URL_SERVER}/service-record`, {
+      responseType: 'blob',
+      params: httpParams
+    });
   }
 }

@@ -1,0 +1,17 @@
+.report {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  label {
+    margin-right: 10px;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__button {
+    margin-top: 20px;
+    background: #9fb0fc;
+  }
+}
